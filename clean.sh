@@ -9,7 +9,7 @@ function main () {
   readarray -t LITTER < <(git status --short | sed -nre 's~^\?\? ~~p')
   local RM_RV=0
   if [ -n "${LITTER[*]}" ]; then
-    rm -v "${LITTER[@]}"
+    rm -rv "${LITTER[@]}"
     RM_RV=$?
   else
     echo -en '(no litter found)\t'
